@@ -1,11 +1,347 @@
-<!doctype html>
-<html>
-<html>
-    <meta charset="utf-8">
-</html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Акулы</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Comic Sans MS", "Trebuchet MS", Arial, sans-serif;
+      color: #f4fbff;
+      background-color: #075985;
+      background-image:
+        url("https://media.giphy.com/media/l1J9EdzfOSgfyueLm/giphy.gif"),
+        linear-gradient(180deg, #073b5f 0%, #0b78a6 48%, #7dd3fc 100%);
+      background-repeat: repeat;
+      background-size: 240px, cover;
+      cursor: url("https://cur.cursors-4u.net/nature/nat-10/nat927.cur"), auto;
+    }
+
+    a {
+      color: #e0f7ff;
+      text-decoration: none;
+    }
+
+    .page {
+      width: 94%;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    .top-line {
+      margin-top: 10px;
+      padding: 8px;
+      border: 2px solid #bae6fd;
+      background: rgba(7, 89, 133, 0.85);
+      color: #f8fafc;
+      font-size: 20px;
+    }
+
+    h1 {
+      display: inline-block;
+      margin: 30px auto 18px;
+      padding: 8px 28px;
+      font-size: 82px;
+      letter-spacing: 6px;
+      color: #ffffff;
+      text-transform: uppercase;
+      font-family: Georgia, "Times New Roman", serif;
+      background: rgba(7, 89, 133, 0.75);
+      border: 3px solid #bae6fd;
+      border-radius: 14px;
+      text-shadow: 2px 2px 0 #075985;
+      animation: none;
+    }
+
+    @keyframes waveTitle {
+      0%, 100% { transform: rotate(-1deg) translateY(0); }
+      50% { transform: rotate(1deg) translateY(-7px); }
+    }
+
+    .divider {
+      width: 80%;
+      height: 38px;
+      margin: 10px auto 25px;
+      background-image: url("https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif");
+      background-size: contain;
+      background-repeat: repeat-x;
+      border-top: 3px dotted #e0f2fe;
+      border-bottom: 3px dotted #075985;
+    }
+
+    .info {
+      width: 78%;
+      margin: 0 auto 35px;
+      padding: 22px 28px;
+      font-size: 22px;
+      line-height: 1.6;
+      color: #073b5f;
+      background: rgba(240, 249, 255, 0.92);
+      border: 3px solid #0ea5e9;
+      border-radius: 16px;
+    }
+
+    .info h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: #075985;
+      font-size: 32px;
+      font-family: Georgia, "Times New Roman", serif;
+      text-shadow: none;
+    }
+
+    .shark-menu {
+      width: 95%;
+      margin: 35px auto 50px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .shark-link {
+      display: inline-block;
+      transition: transform 0.25s ease, filter 0.25s ease;
+      text-align: center;
+    }
+
+    .shark-link:hover {
+      transform: translateY(-18px) translateX(8px) rotate(-4deg) scale(1.1);
+      filter: drop-shadow(8px 10px 0 rgba(3, 105, 161, 0.6));
+    }
+
+    .shark-link img {
+      width: 220px;
+      height: 150px;
+      object-fit: contain;
+      background: transparent;
+      border: none;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .shark-link span {
+      display: block;
+      margin-top: 8px;
+      padding: 4px 8px;
+      font-size: 21px;
+      font-weight: bold;
+      color: #ffffff;
+      text-shadow: 2px 2px 0 #075985;
+    }
+
+    .shop-area {
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    .shop-area a {
+      display: inline-block;
+      transition: transform 0.25s ease, filter 0.25s ease;
+    }
+
+    .shop-area a:hover {
+      transform: translateY(-15px) rotate(3deg) scale(1.08);
+      filter: drop-shadow(9px 12px 0 rgba(3, 105, 161, 0.6));
+    }
+
+    .shop-area img {
+      width: 260px;
+      height: 210px;
+      object-fit: contain;
+      background: transparent;
+      border: none;
+    }
+
+    .shop-title {
+      margin-top: 10px;
+      font-size: 44px;
+      color: #ffffff;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-family: Georgia, "Times New Roman", serif;
+      text-shadow: 2px 2px 0 #075985;
+      animation: shopSwing 1.6s infinite alternate ease-in-out;
+    }
+
+    @keyframes shopSwing {
+      from { transform: rotate(-1deg); }
+      to { transform: rotate(1deg); }
+    }
+
+    .decor {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .decor-1 {
+      top: 125px;
+      left: 20px;
+      width: 130px;
+      animation: swimLeft 5s infinite ease-in-out;
+    }
+
+    .decor-2 {
+      top: 240px;
+      right: 25px;
+      width: 115px;
+      animation: float 3s infinite ease-in-out;
+    }
+
+    .decor-3 {
+      top: 600px;
+      left: 45px;
+      width: 150px;
+      animation: spinSlow 8s infinite linear;
+    }
+
+    .decor-4 {
+      top: 720px;
+      right: 55px;
+      width: 170px;
+      animation: float 4s infinite ease-in-out;
+    }
+
+    .corner-gif-left {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 120px;
+      z-index: 5;
+    }
+
+    .corner-gif-right {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      width: 120px;
+      z-index: 5;
+    }
+
+    @keyframes swimLeft {
+      0%, 100% { transform: translateX(0) rotate(-6deg); }
+      50% { transform: translateX(40px) rotate(5deg); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-22px); }
+    }
+
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .counter {
+      margin: 40px auto 10px;
+      width: 260px;
+      padding: 10px;
+      font-family: "Courier New", monospace;
+      background: rgba(240, 249, 255, 0.9);
+      color: #075985;
+      border: 2px solid #0ea5e9;
+      font-size: 18px;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #f0f9ff;
+      text-shadow: 2px 2px 0 #082f49;
+    }
+
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 55px;
+        letter-spacing: 4px;
+      }
+
+      .info {
+        width: 90%;
+        font-size: 18px;
+      }
+
+      .shark-link img {
+        width: 190px;
+      }
+
+      .decor {
+        opacity: 0.35;
+      }
+    }
+  </style>
+</head>
+
 <body>
-<img src="gerbtspu118.png">
-    <h1>ТГПУ</h1>
-<p>Я учусь в <a href="https://www.tspu.ru">ТГПУ</a></p>
+  <div class="page">
+    <div class="top-line">
+      <marquee behavior="scroll" direction="left" scrollamount="7">
+        ★ Добро пожаловать на сайт про АКУЛ! Осторожно: много зубов, воды и старого доброго веб-дизайна ★
+      </marquee>
+    </div>
+
+    <img class="decor decor-1" src="https://www.animatedimages.org/data/media/194/animated-shark-image-0019.gif" alt="Акула гиф" />
+    <img class="decor decor-2" src="https://www.animatedimages.org/data/media/194/animated-shark-image-0025.gif" alt="Акула гиф" />
+    <img class="decor decor-3" src="https://www.animatedimages.org/data/media/271/animated-fish-image-0079.gif" alt="Рыба гиф" />
+    <img class="decor decor-4" src="https://www.animatedimages.org/data/media/194/animated-shark-image-0016.gif" alt="Акула гиф" />
+
+    <img class="corner-gif-left" src="https://www.animatedimages.org/data/media/194/animated-shark-image-0032.gif" alt="Акула" />
+    <img class="corner-gif-right" src="https://www.animatedimages.org/data/media/194/animated-shark-image-0032.gif" alt="Акула" />
+
+    <h1>Акулы</h1>
+
+    <div class="divider"></div>
+
+    <section class="info">
+      <h2>Общая информация</h2>
+      <p>
+        Акулы — древние морские хищники, которые появились на Земле задолго до человека.
+        Они живут в океанах и морях, отлично чувствуют запахи, движение воды и могут быстро
+        находить добычу. У акул сильное тело, острые зубы и очень важная роль в природе:
+        они помогают поддерживать порядок в морских экосистемах. Большинство видов акул
+        не охотятся на людей, хотя фильмы, конечно, сделали из них настоящих водных злодеев.
+        Ну да, человечество снова всё драматизировало, кто бы сомневался.
+      </p>
+    </section>
+
+    <div class="shark-menu">
+      <a class="shark-link" href="belaya-akula.html">
+        <img src="https://www.pngmart.com/files/22/Great-White-Shark-PNG-Transparent.png" alt="Белая акула" />
+        <span>Белая акула</span>
+      </a>
+
+      <a class="shark-link" href="tigrovaya-akula.html">
+        <img src="https://pngimg.com/uploads/shark/shark_PNG18830.png" alt="Тигровая акула" />
+        <span>Тигровая акула</span>
+      </a>
+
+      <a class="shark-link" href="molot.html">
+        <img src="https://pngimg.com/uploads/shark/shark_PNG18826.png" alt="Акула-молот" />
+        <span>Акула-молот</span>
+      </a>
+
+      <a class="shark-link" href="kitovaya-akula.html">
+        <img src="https://pngimg.com/uploads/shark/shark_PNG18835.png" alt="Китовая акула" />
+        <span>Китовая акула</span>
+      </a>
+    </div>
+
+    <div class="divider"></div>
+
+    <section class="shop-area">
+      <a href="tovary.html">
+        <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="Товары" />
+      </a>
+      <div class="shop-title">Товары</div>
+    </section>
+  </div>
 </body>
 </html>
