@@ -58,11 +58,6 @@
       animation: none;
     }
 
-    @keyframes waveTitle {
-      0%, 100% { transform: rotate(-1deg) translateY(0); }
-      50% { transform: rotate(1deg) translateY(-7px); }
-    }
-
     .divider {
       width: 80%;
       height: 38px;
@@ -107,13 +102,13 @@
 
     .shark-link {
       display: inline-block;
-      transition: transform 0.25s ease, filter 0.25s ease;
+      transition: transform 0.25s ease;
       text-align: center;
     }
 
     .shark-link:hover {
-      transform: translateY(-18px) translateX(8px) rotate(-4deg) scale(1.1);
-      filter: drop-shadow(8px 10px 0 rgba(3, 105, 161, 0.6));
+      transform: translateY(-6px) scale(1.03);
+      filter: none;
     }
 
     .shark-link img {
@@ -143,12 +138,12 @@
 
     .shop-area a {
       display: inline-block;
-      transition: transform 0.25s ease, filter 0.25s ease;
+      transition: transform 0.25s ease;
     }
 
     .shop-area a:hover {
-      transform: translateY(-15px) rotate(3deg) scale(1.08);
-      filter: drop-shadow(9px 12px 0 rgba(3, 105, 161, 0.6));
+      transform: translateY(-6px) scale(1.03);
+      filter: none;
     }
 
     .shop-area img {
@@ -338,10 +333,11 @@
 
     <section class="shop-area">
       <a href="tovary.html">
-        <img src="https://i.pinimg.com/736x/69/23/c1/6923c19df56ee5ce34188a3c1e6b9430.jpg" />
+        <img src="https://i.pinimg.com/736x/69/23/c1/6923c19df56ee5ce34188a3c1e6b9430.jpg"/>
       </a>
       <div class="shop-title">Товары</div>
     </section>
+
   </div>
 </body>
 </html>
