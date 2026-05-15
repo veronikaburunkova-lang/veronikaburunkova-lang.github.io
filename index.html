@@ -134,6 +134,10 @@
     .shop-area {
       margin-top: 25px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .shop-area a {
@@ -147,8 +151,8 @@
     }
 
     .shop-area img {
-      width: min(360px, 85vw);
-      height: 220px;
+      width: min(520px, 90vw);
+      height: 330px;
       object-fit: contain;
       background: transparent;
       border: none;
@@ -158,7 +162,8 @@
 
     .shop-title {
       display: inline-block;
-      margin-top: -4px;
+      margin-top: -2px;
+      text-align: center;
       font-size: 44px;
       color: #ffffff;
       letter-spacing: 4px;
@@ -168,7 +173,7 @@
       transition: transform 0.25s ease;
     }
 
-    .shop-area:hover .shop-title {
+    .shop-title:hover {
       transform: translateY(-6px) scale(1.03);
     }
 
@@ -288,7 +293,6 @@
     <img class="decor decor-1" src="https://www.animatedimages.org/data/media/194/animated-shark-image-0019.gif" alt="Акула гиф" />
     <img class="decor decor-2" src="https://www.animatedimages.org/data/media/194/animated-shark-image-0025.gif" alt="Акула гиф" />
     <img class="decor decor-3" src="https://www.animatedimages.org/data/media/271/animated-fish-image-0079.gif" alt="Рыба гиф" />
-    <img class="decor decor-4" src="https://www.animatedimages.org/data/media/194/animated-shark-image-0016.gif" alt="Акула гиф" />
 
     <img class="corner-gif-left" src="https://www.animatedimages.org/data/media/194/animated-shark-image-0032.gif" alt="Акула" />
     <img class="corner-gif-right" src="https://www.animatedimages.org/data/media/194/animated-shark-image-0032.gif" alt="Акула" />
@@ -340,14 +344,6 @@
       <div class="shop-title">Товары</div>
     </section>
 
-    <div class="counter">
-      Посетителей: 000042<br />
-      Последнее обновление: сегодня
-    </div>
-
-    <div class="footer">
-      © Сайт про акул | Сделано в духе 2000-х, потому что нормальный вкус иногда берёт отпуск
-    </div>
   </div>
 </body>
 </html>
