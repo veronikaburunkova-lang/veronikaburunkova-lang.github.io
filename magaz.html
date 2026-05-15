@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Товары с акулами</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Comic Sans MS", "Trebuchet MS", Arial, sans-serif;
+      color: #f4fbff;
+      background-color: #38bdf8;
+      background-image: linear-gradient(180deg, #0ea5e9 0%, #38bdf8 50%, #7dd3fc 100%);
+      cursor: url("https://cur.cursors-4u.net/nature/nat-10/nat927.cur"), auto;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .page {
+      width: 94%;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    h1 {
+      display: inline-block;
+      margin: 30px auto 18px;
+      padding: 8px 28px;
+      font-size: 82px;
+      letter-spacing: 6px;
+      color: #ffffff;
+      text-transform: uppercase;
+      font-family: Georgia, "Times New Roman", serif;
+      background: rgba(7, 89, 133, 0.75);
+      border: 3px solid #bae6fd;
+      border-radius: 14px;
+      text-shadow: 2px 2px 0 #075985;
+    }
+
+    .subtitle {
+      margin: 18px auto 28px;
+      font-size: 32px;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      text-shadow: 2px 2px 0 #075985;
+    }
+
+    .divider {
+      width: 80%;
+      height: 38px;
+      margin: 10px auto 30px;
+      background-image: url("https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif");
+      background-size: contain;
+      background-repeat: repeat-x;
+    }
+
+    .products {
+      width: 92%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 36px 28px;
+      align-items: start;
+    }
+
+    .product {
+      text-align: center;
+    }
+
+    .product a {
+      display: inline-block;
+      transition: transform 0.25s ease;
+    }
+
+    .product a:hover {
+      transform: translateY(-6px) scale(1.03);
+      filter: none;
+    }
+
+    .product img {
+      width: 210px;
+      height: 210px;
+      object-fit: contain;
+      background: transparent;
+      border: none;
+    }
+
+    .product-name {
+      margin-top: 8px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #ffffff;
+      text-shadow: 2px 2px 0 #075985;
+    }
+
+    .product-info {
+      width: 85%;
+      margin: 6px auto 0;
+      font-size: 15px;
+      line-height: 1.35;
+      color: #e0f7ff;
+      text-shadow: 1px 1px 0 #075985;
+    }
+
+    .note {
+      width: 70%;
+      margin: 42px auto 20px;
+      font-size: 18px;
+      color: #e0f7ff;
+      text-shadow: 1px 1px 0 #075985;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin: 20px auto 10px;
+      padding: 10px 18px;
+      color: #ffffff;
+      background: rgba(7, 89, 133, 0.85);
+      border: 2px solid #bae6fd;
+      border-radius: 10px;
+      font-size: 20px;
+      transition: transform 0.25s ease;
+    }
+
+    .back-link:hover {
+      transform: translateY(-4px);
+      filter: none;
+    }
+
+    .decor {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .decor-1 {
+      top: 120px;
+      left: 25px;
+      width: 130px;
+      animation: swimLeft 7s infinite ease-in-out;
+    }
+
+    .decor-2 {
+      top: 300px;
+      right: 35px;
+      width: 130px;
+      animation: float 5s infinite ease-in-out;
+    }
+
+    .decor-3 {
+      bottom: 80px;
+      left: 50px;
+      width: 150px;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .corner-gif-left {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 115px;
+      z-index: 5;
+    }
+
+    .corner-gif-right {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      width: 115px;
+      z-index: 5;
+    }
+
+    @keyframes swimLeft {
+      0%, 100% { transform: translateX(0) rotate(-3deg); }
+      50% { transform: translateX(18px) rotate(3deg); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .footer {
+      margin-top: 22px;
+      font-size: 18px;
+      color: #f0f9ff;
+      text-shadow: 2px 2px 0 #082f49;
+    }
+
+    @media (max-width: 1000px) {
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      h1 {
+        font-size: 38px;
+        letter-spacing: 1px;
+      }
+
+      h1::before,
+      h1::after {
+        display: none;
+      }
+
+      .subtitle {
+        font-size: 25px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .product img {
+        width: 220px;
+        height: 220px;
+      }
+
+      .decor {
+        opacity: 0.35;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <img class="decor decor-1" src="https://www.animatedimages.org/data/media/194/animated-shark-image-0019.gif" alt="Акула гиф" />
+    <img class="decor decor-2" src="https://www.animatedimages.org/data/media/271/animated-fish-image-0079.gif" alt="Рыба гиф" />
+    <img class="decor decor-3" src="https://www.animatedimages.org/data/media/194/animated-shark-image-0025.gif" alt="Акула гиф" />
+
+    <img class="corner-gif-left" src="https://www.animatedimages.org/data/media/194/animated-shark-image-0032.gif" alt="Акула" />
+    <img class="corner-gif-right" src="https://www.animatedimages.org/data/media/194/animated-shark-image-0032.gif" alt="Акула" />
+
+    <h1>Товары с акулами!</h1>
+    <div class="subtitle">Посмотрите на них!</div>
+
+    <div class="divider"></div>
+
+    <section class="products">
+      <div class="product">
+        <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=плюшевая%20акула" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/3468/3468377.png" alt="Плюшевая акула" />
+        </a>
+        <div class="product-name">Плюшевая акула</div>
+        <div class="product-info">Мягкая игрушка для комнаты, подарка или обнимашек. Акула, но без укусов, уже прогресс.</div>
+      </div>
+
+      <div class="product">
+        <a href="https://www.ozon.ru/search/?text=футболка%20с%20акулой" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/863/863684.png" alt="Футболка с акулой" />
+        </a>
+        <div class="product-name">Футболка с акулой</div>
+        <div class="product-info">Одежда с морским принтом для тех, кто хочет выглядеть чуть опаснее обычного.</div>
+      </div>
+
+      <div class="product">
+        <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=кружка%20акула" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/924/924514.png" alt="Кружка с акулой" />
+        </a>
+        <div class="product-name">Кружка с акулой</div>
+        <div class="product-info">Подойдёт для чая, кофе и драматичного взгляда в окно после уроков.</div>
+      </div>
+
+      <div class="product">
+        <a href="https://www.ozon.ru/search/?text=наклейки%20акулы" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/1055/1055672.png" alt="Наклейки с акулами" />
+        </a>
+        <div class="product-name">Наклейки с акулами</div>
+        <div class="product-info">Можно украсить тетрадь, ноутбук или всё, что выглядит слишком скучно.</div>
+      </div>
+
+      <div class="product">
+        <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=брелок%20акула" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" alt="Брелок акула" />
+        </a>
+        <div class="product-name">Брелок акула</div>
+        <div class="product-info">Небольшой аксессуар для ключей, рюкзака или пенала. Мини-акула на службе быта.</div>
+      </div>
+
+      <div class="product">
+        <a href="https://www.ozon.ru/search/?text=рюкзак%20акула" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/3330/3330314.png" alt="Рюкзак с акулой" />
+        </a>
+        <div class="product-name">Рюкзак с акулой</div>
+        <div class="product-info">Для школы, прогулок и хранения всего того хаоса, который почему-то нужен каждый день.</div>
+      </div>
+
+      <div class="product">
+        <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=пенал%20акула" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/3585/3585145.png" alt="Пенал с акулой" />
+        </a>
+        <div class="product-name">Пенал с акулой</div>
+        <div class="product-info">Место для ручек, карандашей и прочего канцелярского добра, которое вечно теряется.</div>
+      </div>
+
+      <div class="product">
+        <a href="https://www.ozon.ru/search/?text=чехол%20акула" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/545/545245.png" alt="Чехол с акулой" />
+        </a>
+        <div class="product-name">Чехол с акулой</div>
+        <div class="product-info">Защита для телефона с морским настроением. Почти броня, только симпатичнее.</div>
+      </div>
+    </section>
+
+    <div class="note">
+      Ссылки сейчас ведут на поиск товаров на маркетплейсах. Чтобы переход был прямо на конкретный товар,
+      замени адрес в каждом <b>href</b> на ссылку нужной карточки товара.
+    </div>
+
+    <a class="back-link" href="index.html">← Вернуться на главную</a>
+
+  </div>
+</body>
+</html>
